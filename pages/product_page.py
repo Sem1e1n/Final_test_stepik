@@ -34,3 +34,4 @@ class ProductPage(BasePage):
         #Проверка, что элемент не исчез, но должен был
         assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
             'Success message is not disappeared, but should be'
+            
