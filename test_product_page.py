@@ -40,4 +40,5 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
     page = ProductPage(browser, link)
     page.open()
+    page.add_item_to_bascket()
     page.should_be_success_message()
