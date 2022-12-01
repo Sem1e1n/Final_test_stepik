@@ -17,6 +17,9 @@ class BasePage():
     def open(self):
         self.browser.get(self.url)
         
+    def go_to_basket_page(self):
+        link = self.browser.find_element(*BasePageLocators.BTN_BASKET)
+        link.click()
         
     def go_to_login_page(self):
        login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
@@ -27,10 +30,17 @@ class BasePage():
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
         
+    def should_be_btn_basket(self):
+        assert self.is_element_present(*BasePageLocators.BTN_BASKET), "Button of basket not presented"
         
         
         
         
+        
+        
+    def go_to_basket_page(self):
+        button = self.browser.find_element(*BasePageLocators.BASKET_BUTTON)
+        button.click()
         
     def is_disappeared(self, how, what, timeout=4):
         try:
