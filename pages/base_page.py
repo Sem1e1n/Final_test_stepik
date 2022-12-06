@@ -35,7 +35,11 @@ class BasePage():
         
         
         
-        
+    def should_be_authorized_user(self):
+        # Проверка: пользователь залогинен
+        time.sleep(15)
+        assert self.is_element_present(*BasePageLocators.USER_ICON), 'User icon is not presented,' \
+                                                                     ' probably unauthorised user'        
         
         
     def go_to_basket_page(self):
@@ -64,6 +68,8 @@ class BasePage():
         except TimeoutException:
             return True
         return False
+        
+
         
         
     def solve_quiz_and_get_code(self):

@@ -23,3 +23,20 @@ class LoginPage(BasePage):
         #  проверка что есть форма регистрации на странице
         assert self.is_element_present(By.CSS_SELECTOR, "*MainPageLocators.REGISTRY_FORM"), "regystry form is not presented"
         assert True
+        
+        
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                 " probably unauthorised user"
+
+    def register_new_user(self, email, password):
+        """Метод регистрирует нового пользователя"""
+        reg_email = self.browser.find_element(*LoginPageLocators.REGISTER_EMAIL)
+        reg_email.send_keys(email)
+        reg_pass = self.browser.find_element(*LoginPageLocators.REGISTER_PASSWORD)
+        reg_pass.send_keys(password)
+        confirm_pass = self.browser.find_element(*LoginPageLocators.CONFIRM_PASSWORD)
+        confirm_pass.send_keys(password)
+        submit = self.browser.find_element(*LoginPageLocators.REGISTER_SUBMIT)
+        submit.click()
+        

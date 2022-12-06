@@ -28,7 +28,7 @@ def test_guest_can_add_product_to_cart(browser):
     product_page.add_item_to_bascket()
     product_page.solve_quiz_and_get_code()
     product_page.check_add_item_to_basket()
-   """ 
+  
    
 def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     link = "http://selenium1py.pythonanywhere.com/"
@@ -43,3 +43,5 @@ def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
 
     basket_page = BasketPage(browser, browser.current_url)
     basket_page.should_be_empty_basket()
+    """
+    
